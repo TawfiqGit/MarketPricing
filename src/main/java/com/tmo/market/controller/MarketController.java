@@ -29,7 +29,7 @@ public class MarketController {
         return new ResponseEntity<String>("Réponse du serveur: "+ HttpStatus.OK.name(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/panier", method = RequestMethod.GET)
+    @RequestMapping(value = "/market", method = RequestMethod.GET)
     public List<PanierEntity> showPanier(){
         return repository.findAll();
     }
