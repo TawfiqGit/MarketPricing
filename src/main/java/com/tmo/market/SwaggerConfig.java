@@ -27,7 +27,7 @@ public class SwaggerConfig  {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select() //initialiser une classe du nom de MarketApi
                 .apis(RequestHandlerSelectors.basePackage("com.tmo.market")) //filtrer selon les contrôleurs return true ou false
-                .paths(PathSelectors.regex("/market.*"))//accepte URI commençant par /Market
+              //  .paths(PathSelectors.regex("/market.*"))//accepte URI commençant par /Market
                 .build()
                 .apiInfo(apiInfo())
                 .globalResponseMessage(RequestMethod.GET,
