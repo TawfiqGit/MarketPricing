@@ -2,17 +2,17 @@ package com.tmo.market.domaine.entite;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "article")
+@Table(name = "tarification")
 @Getter
 @Setter
-public class ArticleEntity extends BaseEntity {
+public class Tarification extends BaseEntity {
 
-    String nom;
-    String description;
-    double prix;
-
+    double coutRevientHt;
+    double tauxMarge;
 }

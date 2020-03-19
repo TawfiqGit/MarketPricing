@@ -10,7 +10,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long id;
+    private final Integer id;
 
     public BaseEntity() {
         this.id = null;

@@ -1,8 +1,8 @@
 package com.tmo.market.controller;
 
 import com.tmo.market.MarketApplication;
-import com.tmo.market.database.dao.PanierRepository;
-import com.tmo.market.domaine.entite.PanierEntity;
+import com.tmo.market.database.repository.ProduitRepository;
+import com.tmo.market.domaine.entite.Produit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class MarketController {
     private static final Logger logger = LoggerFactory.getLogger(MarketApplication.class);
 
     @Autowired
-    private PanierRepository repository;
+    private ProduitRepository produitRepository;
 
     @GetMapping(value = "/")
     public ResponseEntity<String> main() {
@@ -30,9 +30,8 @@ public class MarketController {
     }
 
     @RequestMapping(value = "/market", method = RequestMethod.GET)
-    public List<PanierEntity> showPanier(){
-        return repository.findAll();
+    public List<Produit> showPanier(){
+        return produitRepository.findAll();
     }
-
 
 }

@@ -1,0 +1,2 @@
+INSERT INTO ARTICLE (ID, DESCRIPTION, NOM, PRIX)
+VALUES ( 0 , 'jskdnfkjs','jnfqjdn',10.23);
