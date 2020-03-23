@@ -11,8 +11,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class Options extends BaseEntity {
-
     String nomOption;
     double resultat;
-
 }

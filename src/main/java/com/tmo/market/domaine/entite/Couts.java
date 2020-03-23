@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class Couts extends BaseEntity {
-
     //Couts revient
     double achat;
     double production;
@@ -19,9 +18,4 @@ public class Couts extends BaseEntity {
     double promotion;
     double administratif;
 
-    //Service
-    double horaire;
-    double frais_prospections;
-    double charges_courantes;
-    double frais_de_production;
 }

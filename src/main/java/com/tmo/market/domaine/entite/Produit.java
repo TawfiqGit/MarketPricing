@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class Produit extends BaseEntity{
-
     String nom;
     String description;
     double prix_unitaire;

@@ -1,7 +1,5 @@
 package com.tmo.market.domaine.usercase;
 
-import com.tmo.market.domaine.entite.Couts;
-
 public class CalculerCoutRevientHT {
 
     //Formule = somme des charges directes et indirectes / quantités produites.
@@ -21,7 +19,7 @@ public class CalculerCoutRevientHT {
         this.quantit_produit = quantit_produit;
     }
 
-    private double calculerCoutRevient(){
+    public double calculerCoutRevient(){
         return (cout_achat + cout_production + cout_distribution + cout_promotion + cout_administratif) / quantit_produit;
     }
 }

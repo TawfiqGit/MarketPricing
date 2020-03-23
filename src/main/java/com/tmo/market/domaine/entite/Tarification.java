@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class Tarification extends BaseEntity {
-
     double coutRevientHt;
     double tauxMarge;
 }
