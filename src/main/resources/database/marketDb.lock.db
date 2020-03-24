@@ -1,6 +1,6 @@
 #FileLock
-#Tue Mar 24 20:06:27 CET 2020
-server=192.168.1.80\:53533
+#Tue Mar 24 21:54:36 CET 2020
+server=192.168.1.80\:50166
 hostName=Tawfiq
 method=file
-id=1710df04f54ad30dcab4709804ee6701ff3c32ef571
+id=1710e535b4d700d916d4d5f3adfc1fbdffbdf1c5083
