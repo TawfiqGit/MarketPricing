@@ -2,7 +2,6 @@ package com.tmo.market.domaine.usercase;
 
 public class CalculerPrixVenteHtDunProduit {
 
-    //Formule = coutRevient + tauxMarge
     double cout_revient_ht;
     double taux_marge;
 

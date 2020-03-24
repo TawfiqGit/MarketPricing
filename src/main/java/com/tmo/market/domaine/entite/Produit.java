@@ -16,5 +16,4 @@ public class Produit extends BaseEntity{
     String description;
     double prix_unitaire;
     int quantites;
-    int id_couts;
 }
