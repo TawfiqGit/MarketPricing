@@ -7,10 +7,12 @@ import com.tmo.market.domaine.entite.Couts;
 import com.tmo.market.domaine.entite.Produit;
 import com.tmo.market.domaine.entite.Tarifs;
 import com.tmo.market.domaine.usercase.CalculerCoutRevientHT;
+import com.tmo.market.domaine.usercase.CalculerPrixVenteHtDunProduit;
 import com.tmo.market.domaine.usercase.CalculerTauxDeMarge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -78,5 +80,18 @@ public class MarketController {
                 tarifsRepository.save(tarifs);
             }
         }
+    }
+
+    @GetMapping(value = "/tarifs/vente")
+    public List<Double> showAllTarifsCaculer(){
+        List<Tarifs> tarifsList = tarifsRepository.findAll();
+        List<Double> tarifCalculerList = new ArrayList<>();
+
+        for (Tarifs tarifs : tarifsList){
+            CalculerPrixVenteHtDunProduit calculerPrixVenteHtDunProduit = new CalculerPrixVenteHtDunProduit(tarifs.getCoutRevientHt(),tarifs.getTauxMarge());
+            double calculerPrix = calculerPrixVenteHtDunProduit.calculerPrix();
+            tarifCalculerList.add(calculerPrix);
+        }
+        return tarifCalculerList;
     }
 }
