@@ -5,8 +5,6 @@ package com.tmo.market.domaine.usercase;
 //Coefficient multiplicateur = Prix de vente TTC / Prix de vente HT.
 public class CalculerTauxDeMarge {
 
-    //Taux de marge = (marge commerciale / coût d’achat des produits vendus) x 100
-    //Marge commerciale = Chiffre d’affaires HT – Coût d’achat HT
     double chiffreAffaire;
     double coutAchatHT;
 
@@ -19,8 +17,7 @@ public class CalculerTauxDeMarge {
         return chiffreAffaire - coutAchatHT;
     }
 
-    private double calculerTauxMarge(){
+    public double calculerTauxMarge(){
         return (calculerMargeCommercial()/ coutAchatHT) * 100;
     }
-
 }
