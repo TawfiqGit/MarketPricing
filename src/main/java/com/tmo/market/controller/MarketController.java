@@ -1,19 +1,23 @@
 package com.tmo.market.controller;
 
 import com.tmo.market.database.repository.CoutsRepository;
+import com.tmo.market.database.repository.PanierRepository;
 import com.tmo.market.database.repository.ProduitRepository;
 import com.tmo.market.database.repository.TarifsRepository;
 import com.tmo.market.domaine.entite.Couts;
+import com.tmo.market.domaine.entite.Panier;
 import com.tmo.market.domaine.entite.Produit;
 import com.tmo.market.domaine.entite.Tarifs;
 import com.tmo.market.domaine.usercase.CalculerCoutRevientHT;
 import com.tmo.market.domaine.usercase.CalculerPrixVenteHtDunProduit;
 import com.tmo.market.domaine.usercase.CalculerTauxDeMarge;
+import com.tmo.market.domaine.usercase.CalculerTotalSommePanier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class MarketController {
@@ -23,6 +27,15 @@ public class MarketController {
     private CoutsRepository coutsRepository;
     @Autowired
     private TarifsRepository tarifsRepository;
+    @Autowired
+    private PanierRepository panierRepository;
+
+    @DeleteMapping
+    public void deleteAll(){
+        produitRepository.deleteAll();
+        coutsRepository.deleteAll();
+        tarifsRepository.deleteAll();
+    }
 
     @PostMapping(value = "/clients")
     public void addCustomer(Produit produitAdd , Couts coutsAdd ) {
@@ -77,6 +90,9 @@ public class MarketController {
                 tarifs.setTauxMarge(tauxMarge);
                 System.out.println("Taux de marge = " +tauxMarge);
 
+                tarifs.setId(produit.getId());
+                System.out.println("ID Tarifs" +tarifs.getId());
+                System.out.println("ID Produit" +produit.getId());
                 tarifsRepository.save(tarifs);
             }
         }
@@ -93,5 +109,36 @@ public class MarketController {
             tarifCalculerList.add(calculerPrix);
         }
         return tarifCalculerList;
+    }
+
+    @PostMapping(value = "/panier")
+    public void addPanier(Panier panierAdd) {
+        panierRepository.save(panierAdd);
+    }
+
+    @GetMapping(value = "/panier/")
+    public List<Double> showAllPanier(){
+        List<Double> listSommePanier = new ArrayList<>();
+        List<Panier> panierList = panierRepository.findAll();
+
+        for (Panier panier : panierList) {
+
+            Optional<Tarifs> tarifsOptional = tarifsRepository.findById(panier.getIdProduit());
+
+            if (tarifsOptional.isPresent()) {
+
+                double coutRevientHt = tarifsOptional.get().getCoutRevientHt();
+                double tauxMarge = tarifsOptional.get().getTauxMarge();
+
+                CalculerPrixVenteHtDunProduit calculerPrixVenteHtDunProduit = new CalculerPrixVenteHtDunProduit(coutRevientHt, tauxMarge);
+                double calculerPrix = calculerPrixVenteHtDunProduit.calculerPrix();
+
+                CalculerTotalSommePanier calculerTotalSommePanier = new CalculerTotalSommePanier(calculerPrix, panier.getQuantite());
+                double sommeTotal = calculerTotalSommePanier.calculerSommeTotal();
+
+                listSommePanier.add(sommeTotal);
+            }
+        }
+        return listSommePanier;
     }
 }
