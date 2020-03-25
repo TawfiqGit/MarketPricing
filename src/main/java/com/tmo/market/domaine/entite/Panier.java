@@ -2,17 +2,14 @@ package com.tmo.market.domaine.entite;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tarifs")
+@Table(name = "panier")
 @Getter
 @Setter
-public class Tarifs {
+public class Panier extends BaseEntity{
 
-    @Id
-    long id;
-    double coutRevientHt;
-    double tauxMarge;
+    long idProduit;
+    int quantite;
 }
