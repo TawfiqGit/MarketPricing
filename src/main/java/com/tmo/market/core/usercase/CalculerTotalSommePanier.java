@@ -1,4 +1,4 @@
-package com.tmo.market.domaine.usercase;
+package com.tmo.market.core.usercase;
 
 public class CalculerTotalSommePanier {
 

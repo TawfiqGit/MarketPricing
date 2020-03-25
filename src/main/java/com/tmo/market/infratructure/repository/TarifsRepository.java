@@ -1,6 +1,6 @@
-package com.tmo.market.database.repository;
+package com.tmo.market.infratructure.repository;
 
-import com.tmo.market.domaine.entite.Tarifs;
+import com.tmo.market.core.entity.Tarifs;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

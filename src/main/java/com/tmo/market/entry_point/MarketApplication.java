@@ -1,4 +1,4 @@
-package com.tmo.market;
+package com.tmo.market.entry_point;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

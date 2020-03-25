@@ -1,4 +1,4 @@
-package com.tmo.market.domaine.usercase;
+package com.tmo.market.core.usercase;
 
 //TODO : a voir taux de marque & coef multiple
 //Taux de marque = (Marge commerciale HT / Prix de vente HT) x 100.

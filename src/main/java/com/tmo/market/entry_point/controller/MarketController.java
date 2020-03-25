@@ -1,17 +1,17 @@
-package com.tmo.market.controller;
+package com.tmo.market.entry_point.controller;
 
-import com.tmo.market.database.repository.CoutsRepository;
-import com.tmo.market.database.repository.PanierRepository;
-import com.tmo.market.database.repository.ProduitRepository;
-import com.tmo.market.database.repository.TarifsRepository;
-import com.tmo.market.domaine.entite.Couts;
-import com.tmo.market.domaine.entite.Panier;
-import com.tmo.market.domaine.entite.Produit;
-import com.tmo.market.domaine.entite.Tarifs;
-import com.tmo.market.domaine.usercase.CalculerCoutRevientHT;
-import com.tmo.market.domaine.usercase.CalculerPrixVenteHtDunProduit;
-import com.tmo.market.domaine.usercase.CalculerTauxDeMarge;
-import com.tmo.market.domaine.usercase.CalculerTotalSommePanier;
+import com.tmo.market.infratructure.repository.CoutsRepository;
+import com.tmo.market.infratructure.repository.PanierRepository;
+import com.tmo.market.infratructure.repository.ProduitRepository;
+import com.tmo.market.infratructure.repository.TarifsRepository;
+import com.tmo.market.core.entity.Couts;
+import com.tmo.market.core.entity.Panier;
+import com.tmo.market.core.entity.Produit;
+import com.tmo.market.core.entity.Tarifs;
+import com.tmo.market.core.usercase.CalculerCoutRevientHT;
+import com.tmo.market.core.usercase.CalculerPrixVenteHtDunProduit;
+import com.tmo.market.core.usercase.CalculerTauxDeMarge;
+import com.tmo.market.core.usercase.CalculerTotalSommePanier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.tmo.market.domaine.entite;
+package com.tmo.market.core.entity;
 
 import javax.persistence.*;
 
